@@ -1,5 +1,5 @@
-<?B_PROLOG_INCLUDED === true || die() ?>
-<?
+<?php B_PROLOG_INCLUDED === true || die() ?>
+<?php
 IncludeTemplateLangFile(__FILE__);
 ?>
 
@@ -7,7 +7,7 @@ IncludeTemplateLangFile(__FILE__);
         <table>
             <tbody><tr>
                 <td rowspan="2" class="hd_companyname">
-                    <h1><?$APPLICATION->IncludeComponent(
+                    <h1><?php $APPLICATION->IncludeComponent(
                             "bitrix:main.include",
                             "",
                             Array(
@@ -20,7 +20,7 @@ IncludeTemplateLangFile(__FILE__);
                         );?></h1>
                 </td>
                 <td rowspan="2" class="hd_txarea">
-                    <span class="tel"><?$APPLICATION->IncludeComponent(
+                    <span class="tel"><?php $APPLICATION->IncludeComponent(
                             "bitrix:main.include",
                             "",
                             Array(
@@ -31,7 +31,7 @@ IncludeTemplateLangFile(__FILE__);
                                 "PATH" => "/include/phone.php"
                             )
                         );?></span>	<br>
-                    время работы <span class="workhours">ежедневно с 9-00 до 18-00</span>
+                    <?=GetMessage("WORKING_TIME")?> <span class="workhours">ежедневно с 9-00 до 18-00</span>
                 </td>
                 <td style="width:232px">
                     <form action="">
@@ -44,29 +44,22 @@ IncludeTemplateLangFile(__FILE__);
             </tr>
             <tr>
                 <td style="padding-top: 11px;">
-							<span class="hd_singin"><a id="hd_singin_but_open" href="">Войти на сайт</a>
-							<div class="hd_loginform">
-								<span class="hd_title_loginform">Войти на сайт</span>
-								<form name="" method="" action="">
-
-									<input placeholder="Логин" type="text">
-									<input placeholder="Пароль" type="password">
-									<a href="/" class="hd_forgotpassword">Забыли пароль</a>
-
-									<div class="head_remember_me" style="margin-top: 10px">
-										<input id="USER_REMEMBER_frm" name="USER_REMEMBER" value="Y" type="checkbox">
-										<label for="USER_REMEMBER_frm" title="Запомнить меня на этом компьютере">Запомнить меня</label>
-									</div>
-									<input value="Войти" name="Login" style="margin-top: 20px;" type="submit">
-									</form>
-								<span class="hd_close_loginform">Закрыть</span>
-							</div>
-							</span><br>
-                    <a href="" class="hd_signup">Зарегистрироваться</a>
+                    <?php $APPLICATION->IncludeComponent(
+	"bitrix:system.auth.form", 
+	"auth", 
+	array(
+		"FORGOT_PASSWORD_URL" => "/user/",
+		"PROFILE_URL" => "/user/profile.php",
+		"REGISTER_URL" => "/user/registration.php",
+		"SHOW_ERRORS" => "Y",
+		"COMPONENT_TEMPLATE" => "auth"
+	),
+	false
+);?>
                 </td>
             </tr>
             </tbody></table>
-        <?$APPLICATION->IncludeComponent(
+        <?php $APPLICATION->IncludeComponent(
             "bitrix:menu",
             "top_multi",
             Array(

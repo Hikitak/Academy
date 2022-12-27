@@ -1,18 +1,25 @@
-<?B_PROLOG_INCLUDED === true || die() ?>
-<?
+<?php B_PROLOG_INCLUDED === true || die() ?>
+<?php
 IncludeTemplateLangFile(__FILE__);
 ?>
 <div class="ft_footer">
     <div class="ft_container">
-        <div class="ft_about">
-            <h4>О магазине</h4>
-            <ul>
-                <li><a href="">Отзывы</a></li>
-                <li><a href="">Контакты</a></li>
-                <li><a href="">Руководство</a></li>
-                <li><a href="">История</a></li>
-            </ul>
-        </div>
+        <?php $APPLICATION->IncludeComponent(
+            "bitrix:menu",
+            "about_menu",
+            Array(
+                "ALLOW_MULTI_SELECT" => "N",
+                "CHILD_MENU_TYPE" => "left",
+                "DELAY" => "N",
+                "MAX_LEVEL" => "1",
+                "MENU_CACHE_GET_VARS" => array(0=>"",),
+                "MENU_CACHE_TIME" => "3600",
+                "MENU_CACHE_TYPE" => "N",
+                "MENU_CACHE_USE_GROUPS" => "Y",
+                "ROOT_MENU_TYPE" => "about",
+                "USE_EXT" => "N"
+            )
+        );?>
         <div class="ft_catalog">
             <h4>Каталог товаров</h4>
             <ul>
@@ -36,7 +43,17 @@ IncludeTemplateLangFile(__FILE__);
 						<span class="adr">
 							<span class="street-address">ул. Летняя стр.12, офис 512</span>
 						</span>
-                <span class="tel">8 (495) 212-85-06</span>
+                <span class="tel"><?php $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_RECURSIVE" => "Y",
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/phone.php"
+                        )
+                    );?></span>
                 <strong>Время работы:</strong> <br/> <span class="workhours">ежедневно с 9-00 до 18-00</span><br/>
             </p>
             <ul class="ft_solcial">
