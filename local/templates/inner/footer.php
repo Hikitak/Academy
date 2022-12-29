@@ -1,12 +1,12 @@
-<?B_PROLOG_INCLUDED === true || die() ?>
-<?
+<?php B_PROLOG_INCLUDED === true || die() ?>
+<?php
 IncludeTemplateLangFile(__FILE__);
 ?>
 </div>
 </div>
 <div class="sb_sidebar">
     
-    <?$APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
 	"bitrix:menu", 
 	"left_multi", 
 	array(
@@ -25,7 +25,7 @@ IncludeTemplateLangFile(__FILE__);
 	),
 	false
 );?>
-    <?$APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
         "bitrix:main.include",
         "",
         Array(
@@ -36,7 +36,7 @@ IncludeTemplateLangFile(__FILE__);
     );?>
 
 
-    <?$APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"discounts", 
 	array(
@@ -101,7 +101,7 @@ IncludeTemplateLangFile(__FILE__);
 	),
 	false
 );?>
-    <?$APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
         "bitrix:main.include",
         "",
         Array(
@@ -111,7 +111,7 @@ IncludeTemplateLangFile(__FILE__);
             "EDIT_TEMPLATE" => "",
         )
     );?>
-    <?$APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"random_review", 
 	array(
@@ -183,7 +183,7 @@ IncludeTemplateLangFile(__FILE__);
 </div>
 </div>
 
-<?include_once($_SERVER["DOCUMENT_ROOT"]."/local/templates/.default/include/footer.php")?>
+<?php include_once($_SERVER["DOCUMENT_ROOT"]."/local/templates/.default/include/footer.php")?>
 </div>
 </body>
 </html>

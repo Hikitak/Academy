@@ -25,7 +25,8 @@ if ($isFilter || $isSidebar): ?>
 		<? if ($isFilter): ?>
 			<div class="bx-sidebar-block">
 				<?
-				$APPLICATION->IncludeComponent(
+                $this->SetViewTarget("filter");
+                $APPLICATION->IncludeComponent(
 					"bitrix:catalog.smart.filter",
 					"",
 					array(
@@ -55,9 +56,11 @@ if ($isFilter || $isSidebar): ?>
 					$component,
 					array('HIDE_ICONS' => 'Y')
 				);
-				?>
+                $this->EndViewTarget("filter");
+                ?>
+
 			</div>
-		<? endif ?>
+        <? endif ?>
 		<? if ($isSidebar): ?>
 			<div class="hidden-xs">
 				<?

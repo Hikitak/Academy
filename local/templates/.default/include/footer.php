@@ -1,7 +1,7 @@
-<?php B_PROLOG_INCLUDED === true || die() ?>
-<?php
-IncludeTemplateLangFile(__FILE__);
+<?php B_PROLOG_INCLUDED === true || die();
+use Bitrix\Main\Localization\Loc;
 ?>
+
 <div class="ft_footer">
     <div class="ft_container">
         <?php $APPLICATION->IncludeComponent(

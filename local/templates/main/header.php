@@ -1,4 +1,6 @@
-<?php B_PROLOG_INCLUDED === true || die() ?>
+<?php B_PROLOG_INCLUDED === true || die();
+use Bitrix\Main\Page\Asset;
+ ?>
 <?
 IncludeTemplateLangFile(__FILE__);
 ?>
@@ -6,16 +8,16 @@ IncludeTemplateLangFile(__FILE__);
 <html lang="<?=LANGUAGE_ID;?>-<?=strtoupper(LANGUAGE_ID);?>">
 <head>
     <?php $APPLICATION->ShowHead();?>
-    <title><?$APPLICATION->ShowTitle()?></title>
+    <title><?php $APPLICATION->ShowTitle()?></title>
     <?php
     // для js-файлов
-    $APPLICATION->AddHeadScript('/local/templates/.default/js/jquery-1.8.2.min.js');
-    $APPLICATION->AddHeadScript('/local/templates/.default/js/slides.min.jquery.js');
-    $APPLICATION->AddHeadScript('/local/templates/.default/js/jquery.carouFredSel-6.1.0-packed.js');
-    $APPLICATION->AddHeadScript('/local/templates/.default/js/functions.js');
+    Asset::getInstance()->addJs('/local/templates/.default/js/jquery-1.8.2.min.js');
+    Asset::getInstance()->addJs('/local/templates/.default/js/slides.min.jquery.js');
+    Asset::getInstance()->addJs('/local/templates/.default/js/jquery.carouFredSel-6.1.0-packed.js');
+    Asset::getInstance()->addJs('/local/templates/.default/js/functions.js');
 
     // для css-файлов
-    $APPLICATION->SetAdditionalCSS("/local/templates/.default/template_styles.css");
+    Asset::getInstance()->addCss("/local/templates/.default/template_styles.css");
     ?>
 
 
@@ -45,7 +47,7 @@ IncludeTemplateLangFile(__FILE__);
         });
     </script>
 
-    <?$APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"slider", 
 	array(
@@ -142,25 +144,25 @@ IncludeTemplateLangFile(__FILE__);
             <div class="cn_hp_category">
                 <ul>
                     <li>
-                        <img src="local/templates/.default/content/1.png" alt="">
+                        <img src="/local/templates/.default/content/1.png" alt="">
                         <h2><a href="">Мягкая мебель</a></h2>
                         <p>Диваны, кресла и прочая мягкая мебель <a class="cn_hp_categorymore" href="">→</a></p>
                         <div class="clearboth"></div>
                     </li>
                     <li>
-                        <img src="local/templates/.default/content/2.png" alt="">
+                        <img src="/local/templates/.default/content/2.png" alt="">
                         <h2><a href="">Офисная мебель</a></h2>
                         <p>Диваны, столы, стулья <a class="cn_hp_categorymore" href="">→</a></p>
                         <div class="clearboth"></div>
                     </li>
                     <li>
-                        <img src="local/templates/.default/content/3.png" alt="">
+                        <img src="/local/templates/.default/content/3.png" alt="">
                         <h2><a href="">Мебель для кухни</a></h2>
                         <p>Полки, ящики, столы и стулья <a class="cn_hp_categorymore" href="">→</a></p>
                         <div class="clearboth"></div>
                     </li>
                     <li>
-                        <img src="local/templates/.default/content/4.png" alt="">
+                        <img src="/local/templates/.default/content/4.png" alt="">
                         <h2><a href="">Детская мебель</a></h2>
                         <p>Кровати, стулья, мягкая детская мебель <a class="cn_hp_categorymore" href="">→</a></p>
                         <div class="clearboth"></div>
@@ -171,24 +173,24 @@ IncludeTemplateLangFile(__FILE__);
             <div class="cn_hp_post">
                 <div class="cn_hp_post_new">
                     <h3>Новинки</h3>
-                    <img src="local/templates/.default/content/7.png" alt="">
+                    <img src="/local/templates/.default/content/7.png" alt="">
                     <p>Угловой диван "Титаник", с большим выбором расцветок и фактур.</p>
                     <div class="clearboth"></div>
                 </div>
                 <div class="cn_hp_post_action">
                     <h3>Акции</h3>
-                    <img src="local/templates/.default/content/7.png" alt="">
+                    <img src="/local/templates/.default/content/7.png" alt="">
                     <p>Угловой диван "Титаник", с большим выбором расцветок и фактур.</p>
                     <div class="clearboth"></div>
                 </div>
                 <div class="cn_hp_post_bestsellersn">
                     <h3>Хиты продаж</h3>
-                    <img src="local/templates/.default/content/7.png" alt="">
+                    <img src="/local/templates/.default/content/7.png" alt="">
                     <p>Угловой диван "Титаник", с большим выбором расцветок и фактур.</p>
                     <div class="clearboth"></div>
                 </div>
             </div>
-            <?$APPLICATION->IncludeComponent(
+            <?php $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"news_right", 
 	array(
@@ -272,7 +274,7 @@ IncludeTemplateLangFile(__FILE__);
         });
     </script>
 
-    <?$APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"revie_slider", 
 	array(

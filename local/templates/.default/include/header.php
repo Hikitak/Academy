@@ -1,7 +1,6 @@
-<?php B_PROLOG_INCLUDED === true || die() ?>
-<?php
-IncludeTemplateLangFile(__FILE__);
+<?php B_PROLOG_INCLUDED === true || die() ;
 ?>
+
 
     <div class="hd_header">
         <table>

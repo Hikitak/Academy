@@ -1,4 +1,6 @@
-<?php B_PROLOG_INCLUDED === true || die() ?>
+<?php B_PROLOG_INCLUDED === true || die();
+use Bitrix\Main\Page\Asset;
+?>
 <?php
 IncludeTemplateLangFile(__FILE__);
 ?>
@@ -6,16 +8,16 @@ IncludeTemplateLangFile(__FILE__);
 <html lang="<?=LANGUAGE_ID;?>-<?=strtoupper(LANGUAGE_ID);?>">
 <head>
     <?php $APPLICATION->ShowHead();?>
-    <title><?$APPLICATION->ShowTitle()?></title>
+    <title><?php $APPLICATION->ShowTitle()?></title>
 
     <?php
     // для js-файлов
-    $APPLICATION->AddHeadScript('/local/templates/.default/js/jquery-1.8.2.min.js');
-    $APPLICATION->AddHeadScript('/local/templates/.default/js/functions.js');
+    Asset::getInstance()->addJs('/local/templates/.default/js/jquery-1.8.2.min.js');
+    Asset::getInstance()->addJs('/local/templates/.default/js/functions.js');
 
 
     // для css-файлов
-    $APPLICATION->SetAdditionalCSS("/local/templates/.default/template_styles.css");
+    Asset::getInstance()->addCss("/local/templates/.default/template_styles.css");
     ?>
 
 
@@ -44,5 +46,10 @@ IncludeTemplateLangFile(__FILE__);
             <div class="mn_content">
                 <div class="main_post">
                     <div class="main_title">
-                        <p class="title"><?$APPLICATION->ShowTitle()?></p>
+                        <p class="title">
+                            <span>
+                                <?php $APPLICATION->ShowTitle(false);?>
+                                <?php $APPLICATION->ShowViewContent("stars")?>
+                            </span>
+                        </p>
                     </div>

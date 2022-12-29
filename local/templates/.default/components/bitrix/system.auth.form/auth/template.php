@@ -1,9 +1,8 @@
 <?php B_PROLOG_INCLUDED===true ||die();?>
 
 <?php if($arResult["FORM_TYPE"] == "login"):?>
-
     <?php
-    if ($arResult['SHOW_ERRORS'] == 'Y' && $arResult['ERROR'] && $arResult['ERROR_MESSAGE']['TYPE']=="ERROR" )
+    if ($arResult['SHOW_ERRORS'] == 'Y' && $arResult['ERROR'] && $arResult['ERROR_MESSAGE']['TYPE']=="ERROR" && $_POST["TO_COMPARE"]=="UPPER"  )
         ShowMessage($arResult['ERROR_MESSAGE']);
     ?>
 
@@ -19,6 +18,7 @@
     <?php endforeach?>
 	<input type="hidden" name="AUTH_FORM" value="Y" />
 	<input type="hidden" name="TYPE" value="AUTH" />
+    <input type="hidden" name="TO_COMPARE" value="UPPER"/>
 
 	<input placeholder="<?=GetMessage("AUTH_LOGIN")?>" name="USER_LOGIN" value="<?=$arResult["USER_LOGIN"]?>"  type="text">
 	<input  placeholder="<?=GetMessage("AUTH_PASSWORD")?>" name="USER_PASSWORD" type="password">
