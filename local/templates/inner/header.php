@@ -1,17 +1,18 @@
-<?B_PROLOG_INCLUDED === true || die() ?>
-<?
+<?php B_PROLOG_INCLUDED === true || die() ?>
+<?php
 IncludeTemplateLangFile(__FILE__);
 ?>
 <!DOCTYPE HTML>
 <html lang="<?=LANGUAGE_ID;?>-<?=strtoupper(LANGUAGE_ID);?>">
 <head>
-    <?$APPLICATION->ShowHead();?>
+    <?php $APPLICATION->ShowHead();?>
     <title><?$APPLICATION->ShowTitle()?></title>
 
-    <?
+    <?php
     // для js-файлов
     $APPLICATION->AddHeadScript('/local/templates/.default/js/jquery-1.8.2.min.js');
     $APPLICATION->AddHeadScript('/local/templates/.default/js/functions.js');
+
 
     // для css-файлов
     $APPLICATION->SetAdditionalCSS("/local/templates/.default/template_styles.css");
@@ -22,14 +23,14 @@ IncludeTemplateLangFile(__FILE__);
     <!--[if gte IE 9]><style type="text/css">.gradient {filter: none;}</style><![endif]-->
 </head>
 <body>
-<?$APPLICATION->ShowPanel();?>
+<?php $APPLICATION->ShowPanel();?>
 <div class="wrap">
     <div class="hd_header_area">
-        <?include_once($_SERVER["DOCUMENT_ROOT"]."/local/templates/.default/include/header.php")?>
+        <?php include_once($_SERVER["DOCUMENT_ROOT"]."/local/templates/.default/include/header.php")?>
     </div>
 
     <!--- // end header area --->
-    <?$APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
         "bitrix:breadcrumb",
         "nav",
         Array(
@@ -43,5 +44,5 @@ IncludeTemplateLangFile(__FILE__);
             <div class="mn_content">
                 <div class="main_post">
                     <div class="main_title">
-                        <p class="title">Заголовок страницы</p>
+                        <p class="title"><?$APPLICATION->ShowTitle()?></p>
                     </div>
