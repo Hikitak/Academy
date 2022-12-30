@@ -3,7 +3,7 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php");
 CModule::IncludeModule('iblock');
 
-$Iblock = 2;// Id инфоблока с продукцией
+$Iblock = 1;// Id инфоблока с продукцией
 $matCode = 'MATERIAL'; // Код своства "Материал"
 $manufCode = 'MANUFACTURER'; // Код своства "Производитель"
 
