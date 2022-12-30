@@ -18,4 +18,3 @@ while ($ob = $res->GetNextElement()) {
     $result = $el->Update($arFields['ID'], array('TAGS' => $strTags));
 }
 echo "Done!";
-?>

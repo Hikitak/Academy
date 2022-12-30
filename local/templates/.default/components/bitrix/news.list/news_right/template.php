@@ -6,7 +6,7 @@
             <?php foreach($arResult["ITEMS"] as $arItem):?>
             <li>
                 <?php if($arItem["DISPLAY_ACTIVE_FROM"]):?>
-                    <h4><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=$arItem["DISPLAY_ACTIVE_FROM"]?></a></h4>
+                    <h4><a href="<?if($arItem["DETAIL_PAGE_URL"]): echo $arItem["DETAIL_PAGE_URL"]; endif; ?>"><?=$arItem["DISPLAY_ACTIVE_FROM"]?></a></h4>
                 <?php endif;?>
                 <?php if($arItem["NAME"]):?>
                     <p><?=$arItem["NAME"]?></p>

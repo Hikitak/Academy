@@ -1,4 +1,4 @@
-<?
+<?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arTemplateParameters = array(
@@ -73,6 +73,15 @@ if ($arCurrentValues["USE_SHARE"] == "Y")
 		"TYPE" => "STRING",
 		"DEFAULT" => "",
 	);
-}
+    $arTemplateParameters["LIST_PREV_PIC_H"] = array(
+        "NAME" => GetMessage("LIST_PREV_PIC_H"),
+        "TYPE" => "STRING",
+        "DEFAULT" => "100",
+    );
+    $arTemplateParameters["LIST_PREV_PIC_W"] = array(
+        "NAME" => GetMessage("LIST_PREV_PIC_W"),
+        "TYPE" => "STRING",
+        "DEFAULT" => "100",
+    );
 
-?>
+}

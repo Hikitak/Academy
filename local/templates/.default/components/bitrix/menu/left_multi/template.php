@@ -16,13 +16,13 @@ foreach($arResult as $arItem):?>
 	<?php if ($arItem["IS_PARENT"]):?>
 
 		<?php if ($arItem["DEPTH_LEVEL"] == 1):?>
-            <li class="open current">
+            <li class="<?php if($APPLICATION->GetTitle()==$arItem["TEXT"]):?>open current<?php endif;?>">
                 <span class="sb_showchild"></span>
                 <a href="<?=$arItem["LINK"]?>"><span><?=$arItem["TEXT"]?><span></a>
             <ul>
 
 		<?php else:?>
-            <li class="open current">
+            <li class="<?php if($APPLICATION->GetTitle()==$arItem["TEXT"]):?>open current<?php endif;?>">
                 <span class="sb_showchild"></span>
                 <a href="<?=$arItem["LINK"]?>" ><span><?=$arItem["TEXT"]?></span></a>
             <ul>
@@ -31,7 +31,7 @@ foreach($arResult as $arItem):?>
 
         <?php if ($arItem["PERMISSION"] > "D"):?>
             <?php if ($arItem["DEPTH_LEVEL"] == 1):?>
-                    <li><a href="<?=$arItem["LINK"]?>"><span><?=$arItem["TEXT"]?></span></a></li>
+                    <li class="<?php if($APPLICATION->GetTitle()==$arItem["TEXT"]):?>open current<?php endif;?>" ><a href="<?=$arItem["LINK"]?>"><span><?=$arItem["TEXT"]?></span></a></li>
             <?php else:?>
                     <li><a href="<?=$arItem["LINK"]?>" <?php if ($arItem["SELECTED"]):?> class="item-selected"<?php endif?>><span><?=$arItem["TEXT"]?></span></a></li>
             <?php endif?>

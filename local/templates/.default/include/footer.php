@@ -44,7 +44,17 @@ use Bitrix\Main\Localization\Loc;
             <!-- vCard        http://help.yandex.ru/webmaster/hcard.pdf      -->
             <p class="vcard">
 						<span class="adr">
-							<span class="street-address">ул. Летняя стр.12, офис 512</span>
+							<span class="street-address"><?php $APPLICATION->IncludeComponent(
+                                    "bitrix:main.include",
+                                    "",
+                                    Array(
+                                        "AREA_FILE_RECURSIVE" => "Y",
+                                        "AREA_FILE_SHOW" => "file",
+                                        "AREA_FILE_SUFFIX" => "inc",
+                                        "EDIT_TEMPLATE" => "",
+                                        "PATH" => "/include/address.php"
+                                    )
+                                );?></span>
 						</span>
                 <span class="tel"><?php $APPLICATION->IncludeComponent(
                         "bitrix:main.include",

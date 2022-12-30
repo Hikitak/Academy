@@ -1,4 +1,4 @@
-<?
+<?php
 $MESS["T_IBLOCK_DESC_NEWS_DATE"] = "Display element date";
 $MESS["T_IBLOCK_DESC_NEWS_PICTURE"] = "Display element preview picture";
 $MESS["T_IBLOCK_DESC_NEWS_TEXT"] = "Display element preview text";
@@ -8,4 +8,6 @@ $MESS["T_IBLOCK_DESC_NEWS_SHARE_TEMPLATE"] = "Social Network Bookmarks Template"
 $MESS["T_IBLOCK_DESC_NEWS_SHARE_SYSTEM"] = "Use Social Networks And Bookmarks";
 $MESS["T_IBLOCK_DESC_NEWS_SHARE_SHORTEN_URL_LOGIN"] = "bit.ly Login";
 $MESS["T_IBLOCK_DESC_NEWS_SHARE_SHORTEN_URL_KEY"] = "bit.ly Key";
-?>
+
+$MESS["LIST_PREV_PIC_W"]="Small picture width";
+$MESS["LIST_PREV_PIC_H"]="Small picture height";

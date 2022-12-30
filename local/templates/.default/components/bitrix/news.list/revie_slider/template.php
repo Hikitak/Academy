@@ -15,11 +15,11 @@
                             <span class="rw_name"><?php echo $arItem["NAME"]?></span>
                         <?php endif;?>
                         <span class="rw_job">
-                            <?php echo $arItem["PROPERTIES"]["JOB_TITLE"]["VALUE"]?>
+                            <?php if($arItem["PROPERTIES"]["JOB_TITLE"]["VALUE"]): echo $arItem["PROPERTIES"]["JOB_TITLE"]["VALUE"]; endif;?>
                             <?php echo "&nbsp;"?>
-                            <?php echo $arItem["PROPERTIES"]["COMPANY_NAME"]["VALUE"]?>
+                            <?php if($arItem["PROPERTIES"]["COMPANY_NAME"]["VALUE"]): echo $arItem["PROPERTIES"]["COMPANY_NAME"]["VALUE"]; endif;?>
                         </span>
-                        <p> <?php echo $arItem["PREVIEW_TEXT"];?></p>
+                        <p> <?php if($arItem["PREVIEW_TEXT"]): echo $arItem["PREVIEW_TEXT"]; endif;?></p>
                         <div class="clearboth"></div>
                         <div class="rw_arrow"></div>
                     </div>

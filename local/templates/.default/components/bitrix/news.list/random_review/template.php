@@ -4,22 +4,20 @@
 <?php if($arResult["ITEMS"]):?>
     <?php foreach($arResult["ITEMS"] as $arItem):?>
     <div class="sb_reviewed">
-        <?php if($arItem["PREVIEW_PICTURE"]["SRC"]):?>
+        <a href="<?php if($arItem["DETAIL_PAGE_URL"]): echo $arItem["DETAIL_PAGE_URL"]; endif;?>">
             <img width="70px" height="70px" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" class="sb_rw_avatar" alt=""/>
-        <?php endif;?>
+        </a>
         <?php if($arItem["NAME"]):?>
             <span class="sb_rw_name"><?php echo $arItem["NAME"]?></span>
         <?php endif;?>
-        <?php if($arItem["PROPERTIES"]["JOB_TITLE"]["VALUE"] || $arItem["PROPERTIES"]["COMPANY_NAME"]["VALUE"]):?>
             <span class="sb_rw_job">
-                <?php echo $arItem["PROPERTIES"]["JOB_TITLE"]["VALUE"]?>
+                <?php if($arItem["PROPERTIES"]["JOB_TITLE"]["VALUE"]): echo $arItem["PROPERTIES"]["JOB_TITLE"]["VALUE"]; endif;?>
                 <?php echo "&nbsp;"?>
-                <?php echo $arItem["PROPERTIES"]["COMPANY_NAME"]["VALUE"]?>
+                <?php if($arItem["PROPERTIES"]["COMPANY_NAME"]["VALUE"]): echo $arItem["PROPERTIES"]["COMPANY_NAME"]["VALUE"]; endif;?>
             </span>
-        <?php endif;?>
         <?php if($arItem["PREVIEW_TEXT"]):?>
             <p> <?php echo $arItem["PREVIEW_TEXT"];?></p>
-        <?endif;?>
+        <?php endif;?>
         <div class="clearboth"></div>
         <div class="sb_rw_arrow"></div>
     </div>
