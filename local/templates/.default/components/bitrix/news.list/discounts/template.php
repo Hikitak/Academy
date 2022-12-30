@@ -3,11 +3,10 @@
 <?php if($arResult["ITEMS"]):?>
     <?php foreach($arResult["ITEMS"] as $arItem):?>
     <div class="sb_action">
-        <?php if($arItem["PREVIEW_PICTURE"]["SRC"]):?>
-            <a href="<?if($arItem["DETAIL_PAGE_URL"]): echo $arItem["DETAIL_PAGE_URL"]; endif; ?>">
+
+            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
                 <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt=""/>
             </a>
-        <?php endif;?>
         <h4><?=GetMessage('DISCOUNT')?></h4>
         <h5><a href="<?php echo $arItem["DETAIL_PAGE_URL"]?>">
                 <?php if($arItem["NAME"]): echo $arItem["NAME"]; endif;?>
