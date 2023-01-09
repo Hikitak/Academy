@@ -1,5 +1,5 @@
 <?php
-if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+B_PROLOG_INCLUDED === true || die();
 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Catalog\ProductTable;
@@ -128,7 +128,7 @@ if ($showTopPager)
 		<?=$arResult['NAV_STRING']?>
 		<!-- pagination-container -->
 	</div>
-	<?
+	<?php
 }
 
 if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
@@ -137,12 +137,12 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 	<div class="bx-section-desc bx-<?=$arParams['TEMPLATE_THEME']?>">
 		<p class="bx-section-desc-post"><?=$arResult['DESCRIPTION'] ?? ''?></p>
 	</div>
-	<?
+	<?php
 }
 ?>
 
 <div class="catalog-section bx-<?=$arParams['TEMPLATE_THEME']?>" data-entity="<?=$containerName?>">
-	<?
+	<?php
 	if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS']))
 	{
 		$generalParams = [
@@ -205,13 +205,13 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 		}
 		?>
 		<!-- items-container -->
-		<?
+		<?php
 		foreach ($arResult['ITEM_ROWS'] as $rowData)
 		{
 			$rowItems = array_splice($arResult['ITEMS'], 0, $rowData['COUNT']);
 			?>
 			<div class="row <?=$rowData['CLASS']?>" data-entity="items-row">
-				<?
+				<?php
 				switch ($rowData['VARIANT'])
 				{
 					case 0:
@@ -221,7 +221,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 								<div class="col-xs-12 product-item-big-card">
 									<div class="row">
 										<div class="col-md-12">
-											<?
+											<?php
 											$item = reset($rowItems);
 											$APPLICATION->IncludeComponent(
 												'bitrix:catalog.item',
@@ -254,14 +254,14 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 						?>
 						<div class="col-xs-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php
 								foreach ($rowItems as $item)
 								{
 									?>
 									<div class="col-xs-6 product-item-big-card">
 										<div class="row">
 											<div class="col-md-12">
-												<?
+												<?php
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
 													'',
@@ -284,26 +284,26 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 											</div>
 										</div>
 									</div>
-									<?
+									<?php
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php
 						break;
 
 					case 2:
 						?>
 						<div class="col-xs-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php
 								foreach ($rowItems as $item)
 								{
 									?>
 									<div class="col-sm-4 product-item-big-card">
 										<div class="row">
 											<div class="col-md-12">
-												<?
+												<?php
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
 													'',
@@ -326,24 +326,24 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 											</div>
 										</div>
 									</div>
-									<?
+									<?php
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php
 						break;
 
 					case 3:
 						?>
 						<div class="col-xs-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php
 								foreach ($rowItems as $item)
 								{
 									?>
 									<div class="col-xs-6 col-md-3">
-										<?
+										<?php
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -364,12 +364,12 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 										);
 										?>
 									</div>
-									<?
+									<?php
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php
 						break;
 
 					case 4:
@@ -378,7 +378,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 						<div class="col-sm-6 product-item-big-card">
 							<div class="row">
 								<div class="col-md-12">
-									<?
+									<?php
 									$item = array_shift($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -405,12 +405,12 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 						</div>
 						<div class="col-sm-6 product-item-small-card">
 							<div class="row">
-								<?
+								<?php
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-xs-6">
-										<?
+										<?php
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -431,12 +431,12 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 										);
 										?>
 									</div>
-									<?
+									<?php
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php
 						break;
 
 					case 5:
@@ -444,12 +444,12 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 						?>
 						<div class="col-sm-6 product-item-small-card">
 							<div class="row">
-								<?
+								<?php
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-xs-6">
-										<?
+										<?php
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -470,7 +470,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 										);
 										?>
 									</div>
-									<?
+									<?php
 								}
 								?>
 							</div>
@@ -478,7 +478,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 						<div class="col-sm-6 product-item-big-card">
 							<div class="row">
 								<div class="col-md-12">
-									<?
+									<?php
 									$item = end($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -503,19 +503,19 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 								</div>
 							</div>
 						</div>
-						<?
+						<?php
 						break;
 
 					case 6:
 						?>
 						<div class="col-xs-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php
 								foreach ($rowItems as $item)
 								{
 									?>
 									<div class="col-xs-6 col-sm-4 col-md-2">
-										<?
+										<?php
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -536,12 +536,12 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 										);
 										?>
 									</div>
-									<?
+									<?php
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php
 						break;
 
 					case 7:
@@ -550,7 +550,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 						<div class="col-sm-6 product-item-big-card">
 							<div class="row">
 								<div class="col-md-12">
-									<?
+									<?php
 									$item = array_shift($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -577,12 +577,12 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 						</div>
 						<div class="col-sm-6 product-item-small-card">
 							<div class="row">
-								<?
+								<?php
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-xs-6 col-md-4">
-										<?
+										<?php
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -603,12 +603,12 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 										);
 										?>
 									</div>
-									<?
+									<?php
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php
 						break;
 
 					case 8:
@@ -616,12 +616,12 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 						?>
 						<div class="col-sm-6 product-item-small-card">
 							<div class="row">
-								<?
+								<?php
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-xs-6 col-md-4">
-										<?
+										<?php
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -642,7 +642,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 										);
 										?>
 									</div>
-									<?
+									<?php
 								}
 								?>
 							</div>
@@ -650,7 +650,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 						<div class="col-sm-6 product-item-big-card">
 							<div class="row">
 								<div class="col-md-12">
-									<?
+									<?php
 									$item = end($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -675,19 +675,19 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 								</div>
 							</div>
 						</div>
-						<?
+						<?php
 						break;
 
 					case 9:
 						?>
 						<div class="col-xs-12">
 							<div class="row">
-								<?
+								<?php
 								foreach ($rowItems as $item)
 								{
 									?>
 									<div class="col-xs-12 product-item-line-card">
-										<?
+										<?php
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -707,18 +707,21 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 										);
 										?>
 									</div>
-									<?
+									<?php
 								}
 								?>
 
 							</div>
 						</div>
-						<?
+						<?php
 						break;
 				}
 				?>
+                <?php if(isset($arResult["NEWS"][$item["ID"]])):?>
+                    <div>Актуальный товар</div>
+                <?php endif;?>
 			</div>
-			<?
+			<?php
 		}
 		unset($rowItems);
 
@@ -728,7 +731,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 		unset($generalParams);
 		?>
 		<!-- items-container -->
-		<?
+		<?php
 	}
 	else
 	{
@@ -743,7 +746,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 	}
 	?>
 </div>
-<?
+<?php
 if ($showLazyLoad)
 {
 	?>
@@ -753,7 +756,7 @@ if ($showLazyLoad)
 			<?=$arParams['MESS_BTN_LAZY_LOAD']?>
 		</div>
 	</div>
-	<?
+	<?php
 }
 
 if ($showBottomPager)
@@ -764,7 +767,7 @@ if ($showBottomPager)
 		<?=$arResult['NAV_STRING']?>
 		<!-- pagination-container -->
 	</div>
-	<?
+	<?php
 }
 
 $signer = new \Bitrix\Main\Security\Sign\Signer;
