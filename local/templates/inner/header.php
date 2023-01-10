@@ -49,6 +49,7 @@ IncludeTemplateLangFile(__FILE__);
                         <p class="title">
                             <span>
                                 <?php $APPLICATION->ShowTitle(false);?>
+                                <?=$APPLICATION->ShowViewContent("news_detail_date")?>
                                 <?php $APPLICATION->ShowViewContent("stars")?>
                             </span>
                         </p>

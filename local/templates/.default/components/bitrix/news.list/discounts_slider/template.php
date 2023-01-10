@@ -12,7 +12,8 @@ $this->setFrameMode(true);
             <div id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                 <div>
                     <?php if(is_array($arItem["PREVIEW_PICTURE"])):?>
-                        <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="" />
+<!--                        <img src="--><?//=$arItem["PREVIEW_PICTURE"]["SRC"]?><!--" alt="" />-->
+                        <img src="/local/templates/.default/content/1.jpg" alt="" /><!--Для красоты-->
                     <?php endif;?>
                     <h2><a href="<?=$arItem["PROPERTIES"]['LINK']['VALUE']?>"><?php echo $arItem["NAME"]?></a></h2>
                     <p><?php echo $arResult["CAT_ELEM"][$arItem["PROPERTIES"]["LINK"]["VALUE"]]["NAME"]." всего за ".
