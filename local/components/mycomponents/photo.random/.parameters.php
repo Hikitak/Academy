@@ -1,4 +1,4 @@
-<?
+<?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if(!CModule::IncludeModule("iblock"))
@@ -15,6 +15,13 @@ while($arr=$rsIBlock->Fetch())
 	$arIBlock[$arr["ID"]] = "[".$arr["ID"]."] ".$arr["NAME"];
 }
 
+$arProperties = array();
+$properties = CIBlockProperty::GetList(Array("sort"=>"asc", "name"=>"asc"), Array("ACTIVE"=>"Y", "IBLOCK_ID"=>$arCurrentValues["IBLOCK_ID"]));
+while ($prop_fields = $properties->GetNext())
+{
+	$arProperties[$prop_fields['ID']] = $prop_fields["CODE"]." - ".$prop_fields['NAME'];
+}
+
 $arComponentParameters = array(
 	"GROUPS" => array(
 	),
@@ -26,12 +33,11 @@ $arComponentParameters = array(
 			"VALUES" => $arIBlockType,
 			"REFRESH" => "Y",
 		),
-		"IBLOCKS" => array(
+		"IBLOCK_ID" => array(
 			"PARENT" => "BASE",
 			"NAME" => GetMessage("IBLOCK_IBLOCK"),
 			"TYPE" => "LIST",
 			"VALUES" => $arIBlock,
-			"MULTIPLE"=>"Y",
 			"REFRESH" => "Y",
 		),
 		"PARENT_SECTION" => array(
@@ -54,6 +60,26 @@ $arComponentParameters = array(
 			"TYPE" => "CHECKBOX",
 			"DEFAULT" => "Y",
 		),
+		"IBLOCKS_PROP" => array(
+			"PARENT" => "BASE",
+			"NAME" => GetMessage("IBLOCKS_PROP"),
+			"TYPE" => "LIST",
+			"VALUES" => $arProperties,
+			"REFRESH" => "Y",
+		),
+		"IMG_WIDTH" => array(
+			"PARENT" => "BASE",
+			"NAME" => GetMessage("IMG_WIDTH"),
+			"TYPE" => "STING",
+			"DEFAULT" => "130",
+		),
+		"IMG_HEIGHT" => array(
+			"PARENT" => "BASE",
+			"NAME" => GetMessage("IMG_HEIGHT"),
+			"TYPE" => "STING",
+			"DEFAULT" => "96",
+		),
+		
 	),
 );
 ?>
