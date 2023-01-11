@@ -102,8 +102,13 @@ class CMainHandler
         $arGroupsAfter=array();
         $arGroupsBefore = CUser::GetUserGroup($arFields["ID"]);
         foreach($arFields["GROUP_ID"] as $aGroup){
-            $arGroupsAfter[]=$aGroup["GROUP_ID"];
+            $arGroupsAfter[]=strval($aGroup["GROUP_ID"]);
         }
+        echo GROUP_CONTENT_ID;
+        dump($arGroupsBefore);
+        dump($arGroupsAfter);
+        echo ((!in_array(GROUP_CONTENT_ID, $arGroupsBefore)) && (in_array(GROUP_CONTENT_ID, $arGroupsAfter)))?"1":"2";
+
         if((!in_array(GROUP_CONTENT_ID, $arGroupsBefore)) && (in_array(GROUP_CONTENT_ID, $arGroupsAfter))){
             $DBUsers=CUser::GetList(($by="id"), ($order="asc"), array("GROUPS_ID" => GROUP_CONTENT_ID), array("FIELDS" => array("NAME", "LAST_NAME", "EMAIL")));
             while ($arUser = $DBUsers->Fetch())
@@ -113,8 +118,9 @@ class CMainHandler
                     "MEMBER_EMAIL" => $arUser["EMAIL"],
                     "MEMBER_NAME" => $arUser["NAME"]." ".$arUser["LAST_NAME"],
                 );
+                dump($arSendFields);
+                CEvent::Send("NEW_CONTENT_USER", NEW_SITE_ID, $arSendFields);
 
-                CEvent::Send("NEW_CONTENT_USER", "s1", $arSendFields);
 
             }
         }

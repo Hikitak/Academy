@@ -9,15 +9,16 @@ function AgentCheckPrice(){
             $arFields = $ob->GetFields();
             $arItems[] = $arFields;
         }
-         CEventLog::Add(array(
-             "SEVERITY" => "INFO",
-             "AUDIT_TYPE_ID" => "CHECK_PRICE",
-             "MODULE_ID" => "iblock",
-             "ITEM_ID" => "",
-             "DESCRIPTION" => "Проверка цен, нет цен для ".count($arItems)." элементов.",
 
-         ));
         if(count($arItems)>0){
+            CEventLog::Add(array(
+                "SEVERITY" => "INFO",
+                "AUDIT_TYPE_ID" => "CHECK_PRICE",
+                "MODULE_ID" => "iblock",
+                "ITEM_ID" => "",
+                "DESCRIPTION" => "Проверка цен, нет цен для ".count($arItems)." элементов.",
+
+            ));
             $filter = array("GROUPS_ID"=>array(GROUP_ADMIN_ID));
             $rsUsers = CUser::GetList(($by="personal_country"), ($order="desc"), $filter); // выбираем пользователей
             $arEmail = array();
@@ -33,7 +34,7 @@ function AgentCheckPrice(){
             }
         }
     }
-    return "AgentCheckPrice";
+    return "AgentCheckPrice();";
 }
 function AgentCheckExpiredDiscount(){
     if(CModule::IncludeModule("iblock")) {
@@ -45,15 +46,16 @@ function AgentCheckExpiredDiscount(){
             $arFields = $ob->GetFields();
             $arItems[] = $arFields;
         }
-        CEventLog::Add(array(
-            "SEVERITY" => "INFO",
-            "AUDIT_TYPE_ID" => "CHECK_EXPIRED_DISCOUNTS",
-            "MODULE_ID" => "iblock",
-            "ITEM_ID" => "",
-            "DESCRIPTION" => "Проверка даты активности, дата активности истекает для ".count($arItems)." акций.",
 
-        ));
         if(count($arItems)>0){
+            CEventLog::Add(array(
+                "SEVERITY" => "INFO",
+                "AUDIT_TYPE_ID" => "CHECK_EXPIRED_DISCOUNTS",
+                "MODULE_ID" => "iblock",
+                "ITEM_ID" => "",
+                "DESCRIPTION" => "Проверка даты активности, дата активности истекает для ".count($arItems)." акций.",
+
+            ));
             $filter = array("GROUPS_ID"=>array(GROUP_ADMIN_ID));
             $rsUsers = CUser::GetList(($by="personal_country"), ($order="desc"), $filter); // выбираем пользователей
             $arEmail = array();
@@ -69,6 +71,6 @@ function AgentCheckExpiredDiscount(){
             }
         }
     }
-    return "AgentCheckExpiredDiscount";
+    return "AgentCheckExpiredDiscount();";
 
 }
