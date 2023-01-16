@@ -102,6 +102,8 @@ $this->setFrameMode(true);
 		"FILTER_NAME" => $arParams["FILTER_NAME"],
 		"HIDE_LINK_WHEN_NO_DETAIL" => $arParams["HIDE_LINK_WHEN_NO_DETAIL"],
 		"CHECK_DATES" => $arParams["CHECK_DATES"],
+		"LIST_PREV_PIC_W" => $arParams["LIST_PREV_PIC_W"],
+		"LIST_PREV_PIC_H" => $arParams["LIST_PREV_PIC_H"],
 	),
 	$component
 );?>

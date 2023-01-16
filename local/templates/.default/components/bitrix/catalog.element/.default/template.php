@@ -478,6 +478,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 											?>
 											<div class="product-item-detail-info-container">
 												<?php
+												$this->SetViewTarget("stars");
 												$APPLICATION->IncludeComponent(
 													'bitrix:iblock.vote',
 													'stars',
@@ -497,6 +498,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 													$component,
 													array('HIDE_ICONS' => 'Y')
 												);
+												$this->EndViewTarget("stars");
 												?>
 											</div>
 											<?php

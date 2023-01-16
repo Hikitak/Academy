@@ -17,7 +17,7 @@ IncludeTemplateLangFile(__FILE__);
 		"MENU_CACHE_GET_VARS" => array(
 		),
 		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_TYPE" => "A",
 		"MENU_CACHE_USE_GROUPS" => "Y",
 		"ROOT_MENU_TYPE" => "left",
 		"USE_EXT" => "Y",
@@ -26,14 +26,17 @@ IncludeTemplateLangFile(__FILE__);
 	false
 );?>
     <?php $APPLICATION->IncludeComponent(
-        "bitrix:main.include",
-        "",
-        Array(
-            "AREA_FILE_SHOW" => "page",
-            "AREA_FILE_SUFFIX" => "inc",
-            "EDIT_TEMPLATE" => ""
-        )
-    );?>
+	"bitrix:main.include", 
+	".default", 
+	array(
+		"AREA_FILE_SHOW" => "sect",
+		"AREA_FILE_SUFFIX" => "inc_attention",
+		"EDIT_TEMPLATE" => "",
+		"COMPONENT_TEMPLATE" => ".default",
+		"AREA_FILE_RECURSIVE" => "Y"
+	),
+	false
+);?>
 
 
     <?php $APPLICATION->IncludeComponent(
@@ -54,7 +57,7 @@ IncludeTemplateLangFile(__FILE__);
 		"CHECK_DATES" => "Y",
 		"COMPONENT_TEMPLATE" => "discounts",
 		"DETAIL_URL" => "",
-		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "Y",
 		"DISPLAY_NAME" => "Y",
 		"DISPLAY_PICTURE" => "Y",
@@ -128,7 +131,7 @@ IncludeTemplateLangFile(__FILE__);
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
 		"DETAIL_URL" => "",
-		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "Y",
 		"DISPLAY_NAME" => "Y",
 		"DISPLAY_PICTURE" => "Y",

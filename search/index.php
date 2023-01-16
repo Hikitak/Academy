@@ -12,7 +12,14 @@ $APPLICATION->SetTitle("Поиск");
 		"USE_TITLE_RANK" => "N",
 		"DEFAULT_SORT" => "rank",
 		"arrFILTER" => array(
-			0 => "no",
+			0 => "forum",
+			1 => "iblock_news",
+			2 => "iblock_products",
+			3 => "iblock_vacancies",
+			4 => "iblock_content",
+			5 => "iblock_rest_entity",
+			6 => "blog",
+			7 => "microblog",
 		),
 		"SHOW_WHERE" => "N",
 		"SHOW_WHEN" => "N",
@@ -55,7 +62,28 @@ $APPLICATION->SetTitle("Поиск");
 		"WIDTH" => "100%",
 		"SHOW_RATING" => "",
 		"RATING_TYPE" => "",
-		"PATH_TO_USER_PROFILE" => ""
+		"PATH_TO_USER_PROFILE" => "",
+		"arrFILTER_forum" => array(
+			0 => "all",
+		),
+		"arrFILTER_iblock_news" => array(
+			0 => "all",
+		),
+		"arrFILTER_iblock_products" => array(
+			0 => "all",
+		),
+		"arrFILTER_iblock_vacancies" => array(
+			0 => "all",
+		),
+		"arrFILTER_iblock_content" => array(
+			0 => "all",
+		),
+		"arrFILTER_iblock_rest_entity" => array(
+			0 => "all",
+		),
+		"arrFILTER_blog" => array(
+			0 => "all",
+		)
 	),
 	false
 );?>

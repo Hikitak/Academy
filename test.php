@@ -14,4 +14,38 @@ if(CModule::IncludeModule("iblock")) {
     }
 
 }
-?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?><?$APPLICATION->IncludeComponent(
+	"mycomponents:photo.random",
+	"main",
+	Array(
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "180",
+		"CACHE_TYPE" => "A",
+		"COMPONENT_TEMPLATE" => ".default",
+		"DETAIL_URL" => "",
+		"IBLOCKS_PROP" => "25",
+		"IBLOCK_ID" => "2",
+		"IBLOCK_TYPE" => "products",
+		"IMG_HEIGHT" => "96",
+		"IMG_WIDTH" => "130",
+		"PARENT_SECTION" => ""
+	)
+);?><br>
+ <?$APPLICATION->IncludeComponent(
+	"mycomponents:photo.random", 
+	"main", 
+	array(
+		"COMPONENT_TEMPLATE" => "main",
+		"IBLOCK_TYPE" => "products",
+		"IBLOCK_ID" => "2",
+		"IBLOCKS_PROP" => "24",
+		"IMG_WIDTH" => "130",
+		"IMG_HEIGHT" => "96",
+		"DETAIL_URL" => "",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "180",
+		"CACHE_GROUPS" => "Y",
+		"PARENT_SECTION" => ""
+	),
+	false
+);?><br><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
