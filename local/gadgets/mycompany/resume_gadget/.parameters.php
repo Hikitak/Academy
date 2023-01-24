@@ -26,12 +26,12 @@ $arParameters = Array(
         "TODAY_RESUME_URL"=>array(
             "NAME" => GetMessage("TODAY_RESUME_URL"),
             "TYPE" => "STRING",
-            "DEFAULT" => "",
+            "DEFAULT" => "/new_page.php",
         ),
         "ALL_RESUME_URL"=>array(
             "NAME" => GetMessage("ALL_RESUME_URL"),
             "TYPE" => "STRING",
-            "DEFAULT" => "",
+            "DEFAULT" => "/new_page.php",
         ),
         "SHOW_UNACTIVE_ELEMENTS" => array(
             "NAME" => GetMessage("GD_PRODUCTS_SHOW_UNACTIVE"),

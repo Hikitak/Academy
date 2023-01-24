@@ -29,14 +29,14 @@ if($obCache->StartDataCache($cacheTime, $cacheId, "/")):
         return;
     }?>
     <div>
-        <a style="text-decoration: none;color: #0e0e0e" href="/new_page.php">
+        <a style="text-decoration: none;color: #0e0e0e" href="<?=$arGadgetParams["ALL_RESUME_URL"]."?WEB_FORM_ID=1&del_filter=Сбросить"?>">
             <?="Резюме за все время: ".CFormResult::GetCount($arGadgetParams["WEB_FORM_ID"])?>
         </a>
     </div>
     <div style="clear: both;"></div>
     <br/>
     <div>
-        <a style="text-decoration: none;color: #0e0e0e" href="/new_page.php">
+        <a style="text-decoration: none;color: #0e0e0e" href="<?=$arGadgetParams["ALL_RESUME_URL"]."?WEB_FORM_ID=1&action=list&find_id=&find_status=NOT_REF&find_status_id=&find_date_create_1="?><?=date('d.m.Y')?>">
             <?="Резюме за сегодня: ".(CFormResult::GetList($arGadgetParams["WEB_FORM_ID"],
             ($by="s_timestamp"),
             ($order="desc"),
