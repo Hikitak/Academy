@@ -1,51 +1,42 @@
-<?php B_PROLOG_INCLUDED === true || die();?>
+<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-
-<?php if (!empty($arResult)):?>
+<?if (!empty($arResult)):?>
     <div class="sb_nav">
         <ul>
-<?php
-$previousLevel = 0;
+            <?
+            $previousLevel = 0;
+            foreach($arResult as $arItem):?>
 
-foreach($arResult as $arItem):?>
+            <?if ($previousLevel && $arItem["DEPTH_LEVEL"] < $previousLevel):?>
+                <?=str_repeat("</ul></li>", ($previousLevel - $arItem["DEPTH_LEVEL"]));?>
+            <?endif?>
 
-	<?php if ($previousLevel && $arItem["DEPTH_LEVEL"] < $previousLevel):?>
-		<?=str_repeat("</ul></li>", ($previousLevel - $arItem["DEPTH_LEVEL"]));?>
-	<?php endif?>
+            <?if ($arItem["IS_PARENT"]):?>
 
-	<?php if ($arItem["IS_PARENT"]):?>
-
-		<?php if ($arItem["DEPTH_LEVEL"] == 1):?>
-            <li class="<?php if($APPLICATION->GetTitle()==$arItem["TEXT"]):?>open current<?php endif;?>">
+            <?if ($arItem["DEPTH_LEVEL"] == 1):?>
+            <li class="<?if ($arItem["SELECTED"]):?>open current<?else:?>close<?endif?>">
                 <span class="sb_showchild"></span>
-                <a href="<?=$arItem["LINK"]?>"><span><?=$arItem["TEXT"]?><span></a>
-            <ul>
+                <a href="<?=$arItem["LINK"]?>"><span><?=$arItem["TEXT"]?></span></a>
+                <ul>
+                    <?endif?>
 
-		<?php else:?>
-            <li class="<?php if($APPLICATION->GetTitle()==$arItem["TEXT"]):?>open current<?php endif;?>">
-                <span class="sb_showchild"></span>
-                <a href="<?=$arItem["LINK"]?>" ><span><?=$arItem["TEXT"]?></span></a>
-            <ul>
-		<?php endif?>
-	<?php else:?>
+                    <?else:?>
+                        <?if ($arItem["PERMISSION"] > "D"):?>
+                            <?if ($arItem["DEPTH_LEVEL"] == 1):?>
+                                <li class="<?if ($arItem["SELECTED"]):?>current<?else:?>close<?endif?>"><a href="<?=$arItem["LINK"]?>"><span><?=$arItem["TEXT"]?></span></a></li>
+                            <?else:?>
+                                <li><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
+                            <?endif?>
+                        <?endif?>
+                    <?endif?>
 
-        <?php if ($arItem["PERMISSION"] > "D"):?>
-            <?php if ($arItem["DEPTH_LEVEL"] == 1):?>
-                    <li class="<?php if($APPLICATION->GetTitle()==$arItem["TEXT"]):?>open current<?php endif;?>" ><a href="<?=$arItem["LINK"]?>"><span><?=$arItem["TEXT"]?></span></a></li>
-            <?php else:?>
-                    <li><a href="<?=$arItem["LINK"]?>" <?php if ($arItem["SELECTED"]):?> class="item-selected"<?php endif?>><span><?=$arItem["TEXT"]?></span></a></li>
-            <?php endif?>
-        <?php endif?>
+                    <?$previousLevel = $arItem["DEPTH_LEVEL"];?>
 
-	<?php endif?>
+                    <?endforeach?>
 
-	<?php $previousLevel = $arItem["DEPTH_LEVEL"];?>
-
-<?php endforeach?>
-
-<?php if ($previousLevel > 1)://close last item tags?>
-	<?=str_repeat("</ul></li>", ($previousLevel-1) );?>
-<?php endif?>
-          </ul>
+                    <?if ($previousLevel > 1)://close last item tags?>
+                        <?=str_repeat("</ul></li>", ($previousLevel-1) );?>
+                    <?endif?>
+                </ul>
     </div>
-<?php endif?>
+<?endif?>

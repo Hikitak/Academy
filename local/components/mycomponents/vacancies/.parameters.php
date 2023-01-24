@@ -55,19 +55,19 @@ $arComponentParameters = array(
             "ELEMENT_ID" => Array("NAME" => GetMessage("NEWS_ELEMENT_ID_DESC")),
         ),
         "SEF_MODE" => Array(
-            "afisha" => array(
+            "vacancies" => array(
                 "NAME" => GetMessage("T_IBLOCK_SEF_PAGE_NEWS"),
                 "DEFAULT" => "",
                 "VARIABLES" => array(),
             ),
-            "film" => array(
+            "vacancy" => array(
                 "NAME" => GetMessage("T_IBLOCK_SEF_PAGE_NEWS_DETAIL"),
                 "DEFAULT" => "#ELEMENT_ID#/",
                 "VARIABLES" => array("ELEMENT_ID"),
             ),
-            "add_film" => array(
+            "resume" => array(
                 "NAME" => GetMessage("T_IBLOCK_SEF_PAGE_RSS"),
-                "DEFAULT" => "add_film/",
+                "DEFAULT" => "resume/",
                 "VARIABLES" => array(),
             ),
         ),
@@ -86,6 +86,12 @@ $arComponentParameters = array(
             "VALUES" => $arIBlock,
             "REFRESH" => "Y",
             "ADDITIONAL_VALUES" => "Y",
+        ),
+        "WEB_FORM_ID" => array(
+            "PARENT" => "BASE",
+            "NAME" => GetMessage("T_WEB_FORM_ID"),
+            "TYPE" => "STRING",
+            "DEFAULT" => "",
         ),
         "USE_REVIEW" => Array(
             "PARENT" => "REVIEW_SETTINGS",
@@ -153,23 +159,23 @@ elseif($arCurrentValues["USE_REVIEW"]=="Y")
         "TYPE" => "CHECKBOX",
         "DEFAULT" => "Y"
     );
-    $arComponentParameters["PARAMETERS"]["PATH_TO_SMILE"] = Array(
-        "PARENT" => "REVIEW_SETTINGS",
-        "NAME" => GetMessage("F_PATH_TO_SMILE"),
-        "TYPE" => "STRING",
-        "DEFAULT" => "/bitrix/images/forum/smile/",
-    );
-    $arComponentParameters["PARAMETERS"]["FORUM_ID"] = Array(
-        "PARENT" => "REVIEW_SETTINGS",
-        "NAME" => GetMessage("F_FORUM_ID"),
-        "TYPE" => "LIST",
-        "VALUES" => $arForumList,
-        "DEFAULT" => "",
-    );
-    $arComponentParameters["PARAMETERS"]["URL_TEMPLATES_READ"] = Array(
-        "PARENT" => "REVIEW_SETTINGS",
-        "NAME" => GetMessage("F_READ_TEMPLATE"),
-        "TYPE" => "STRING",
-        "DEFAULT" => "",
-    );
+//    $arComponentParameters["PARAMETERS"]["PATH_TO_SMILE"] = Array(
+//        "PARENT" => "REVIEW_SETTINGS",
+//        "NAME" => GetMessage("F_PATH_TO_SMILE"),
+//        "TYPE" => "STRING",
+//        "DEFAULT" => "/bitrix/images/forum/smile/",
+//    );
+//    $arComponentParameters["PARAMETERS"]["FORUM_ID"] = Array(
+//        "PARENT" => "REVIEW_SETTINGS",
+//        "NAME" => GetMessage("F_FORUM_ID"),
+//        "TYPE" => "LIST",
+//        "VALUES" => $arForumList,
+//        "DEFAULT" => "",
+//    );
+//    $arComponentParameters["PARAMETERS"]["URL_TEMPLATES_READ"] = Array(
+//        "PARENT" => "REVIEW_SETTINGS",
+//        "NAME" => GetMessage("F_READ_TEMPLATE"),
+//        "TYPE" => "STRING",
+//        "DEFAULT" => "",
+//    );
 }

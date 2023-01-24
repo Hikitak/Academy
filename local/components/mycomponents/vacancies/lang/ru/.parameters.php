@@ -28,3 +28,4 @@ $MESS["T_IBLOCK_SEF_PAGE_NEWS_SECTION"] = "Страница раздела";
 $MESS["T_IBLOCK_SEF_PAGE_NEWS_DETAIL"] = "Страница детального просмотра";
 $MESS["T_IBLOCK_SEF_PAGE_RSS"] = "Страница добавления вакансии";
 $MESS["T_IBLOCK_DESC_REVIEW_SETTINGS"]="Настройка резюме";
+$MESS["T_WEB_FORM_ID"]="ID веб-формы для резюме";

@@ -8,3 +8,5 @@ define("NEW_SITE_ID", 's1');
 define('FEEDBACK_IBLOCK_ID', 9);
 define('NEWS_IBLOCK_ID', 1);
 define('GROUP_CONTENT_ID', "5");
+define('WEB_FORM_VACANCY_NAME_FIELD_ID', 10);
+define('IBLOCK_VAC_ID', 4);

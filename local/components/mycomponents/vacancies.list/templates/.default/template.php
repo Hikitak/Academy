@@ -26,9 +26,13 @@ $arSection = array();
             <ul >
                 <?php foreach ($arResult['ITEMS'] as $key_=>$val_): ?>
                     <?php if($val_["IBLOCK_SECTION_ID"]===$val["IBLOCK_SECTION_ID"]):?>
-
+                        <?php
+                        $arSelect = Array("DETAIL_PAGE_URL");
+                        $arFilter = Array("IBLOCK_ID"=>IBLOCK_VAC_ID, "ID"=>$val_['ID'], "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y");
+                        $res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
+                        ?>
                             <li class="close" id="<?=$this->GetEditAreaId($val_['ID']);//Эрмитаж?>">
-                                <h3><?=$val_['NAME']?></h3>
+                                <h3><a style="text-decoration: none;color: #0e0e0e" href="<?=$res->GetNextElement()->GetFields()['DETAIL_PAGE_URL']?>"><?=$val_['NAME']?></a></h3>
                                 <span class="vc_showchild">Подробнее</span>
                                 <ul>
                                     <li>
