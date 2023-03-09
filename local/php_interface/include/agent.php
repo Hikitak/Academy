@@ -40,7 +40,10 @@ function AgentCheckExpiredDiscount(){
     if(CModule::IncludeModule("iblock")) {
 
         $arSelect = array("ID", "NAME", "DATE_ACTIVE_FROM", "PROPERTY_PRICE");
-        $arFilter = array("IBLOCK_ID" => DISCOUNTS_IBLOCK_ID, "<=DATE_ACTIVE_TO" => new \Bitrix\Main\Type\DateTime());
+        $arFilter = array(
+            "IBLOCK_ID" => DISCOUNTS_IBLOCK_ID,
+            "<=DATE_ACTIVE_TO" => new \Bitrix\Main\Type\DateTime()
+        );
         $res = CIBlockElement::GetList(array(), $arFilter, false, false, $arSelect);
         while ($ob = $res->GetNextElement()) {
             $arFields = $ob->GetFields();

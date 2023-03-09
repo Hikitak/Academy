@@ -1,4 +1,4 @@
-<? B_PROLOG_INCLUDED===true || die();
+<?php B_PROLOG_INCLUDED===true || die();
 ?>
 <?php if($arResult["ITEMS"]):?>
 <div class="rw_reviewed">

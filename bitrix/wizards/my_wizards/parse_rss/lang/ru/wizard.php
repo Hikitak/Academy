@@ -1,4 +1,4 @@
-<?php
+<?
 $MESS['MF_INIT_TITLE'] = "Основные настройки";
 $MESS['MF_INIT_SUBTITLE'] = "Выберите инфоблок и укажите путь к RSS";
 $MESS['AF_INIT_TITLE'] = "Импорт RSS";
@@ -25,3 +25,4 @@ $MESS['AF_OPF_ELEMENT'] = "Элемент";
 $MESS['AF_OPF_ADD_ERROR'] = "Ошибка добавления элемента: ";
 
 $MESS['S_SS_ELEMENTS'] = "Создано элементов: ";
+?>
