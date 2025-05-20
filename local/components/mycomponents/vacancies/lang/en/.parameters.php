@@ -1,0 +1,31 @@
+<?php
+
+$MESS["BN_P_IBLOCK_TYPE"] = "IBlock type";
+$MESS["BN_P_IBLOCK"] = "IBlock";
+$MESS["NEWS_ELEMENT_ID_DESC"] = "Vacancy ID ";
+$MESS["IBLOCK_FIELD"] = "Fields";
+$MESS["T_IBLOCK_DESC_ACTIVE_DATE_FORMAT"] = "Date format";
+$MESS["T_IBLOCK_DESC_ASC"] = "ASC";
+$MESS["T_IBLOCK_DESC_DESC"] = "DESC";
+$MESS["T_IBLOCK_DESC_FID"] = "ID";
+$MESS["T_IBLOCK_DESC_FNAME"] = "Name";
+$MESS["T_IBLOCK_DESC_FACT"] = "Date from";
+$MESS["T_IBLOCK_DESC_FSORT"] = "Sort";
+$MESS["T_IBLOCK_DESC_FTSAMP"] = "Date of last change";
+$MESS["T_IBLOCK_PROPERTY"] = "Properties";
+$MESS["T_IBLOCK_DESC_PAGER_NEWS"] = "News";
+$MESS["F_FORUM_ID"] = "ID for resume";
+$MESS["F_USE_CAPTCHA"] = "Use CAPTCHA";
+$MESS["F_MESSAGES_PER_PAGE"] = "Messages per pagе";
+$MESS["F_PATH_TO_SMILE"] = "Path to emojies";
+$MESS["F_REVIEW_AJAX_POST"] = "Use AJAX";
+$MESS["T_IBLOCK_DESC_USE_REVIEW"] = "Allow to add resume";
+$MESS["T_IBLOCK_DESC_GROUP_PERMISSIONS"] = "Groups of users allowed to add vacancies";
+$MESS["CN_P_LIST_SETTINGS"] = "List settings";
+$MESS["CN_P_DETAIL_SETTINGS"] = "Detail view settings";
+$MESS["T_IBLOCK_SEF_PAGE_NEWS"] = "List page";
+$MESS["T_IBLOCK_SEF_PAGE_NEWS_SECTION"] = "Section page";
+$MESS["T_IBLOCK_SEF_PAGE_NEWS_DETAIL"] = "Detail page";
+$MESS["T_IBLOCK_SEF_PAGE_RSS"] = "Add vacancy page";
+$MESS["T_IBLOCK_DESC_REVIEW_SETTINGS"]="Resume settings";
+$MESS["T_WEB_FORM_ID"]="Web form ID";
